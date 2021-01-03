@@ -26,5 +26,23 @@ namespace JenkinsTestWebApp.Controllers
 
             return View();
         }
+
+        /// <summary>
+        /// This our test page
+        /// </summary>
+        /// <returns>First n whole numbers</returns>
+        public ActionResult JenkinsTest(int WholeNum = 21 )
+        {
+            ViewData["InputWholeNum"] = WholeNum;
+            ViewBag.Message = "Your Integration Test Page";
+            if (WholeNum > 20)
+            {
+                return View();
+            }
+            else
+            {
+                throw (new Exception("Out of the range"));
+            }
+        }
     }
 }
